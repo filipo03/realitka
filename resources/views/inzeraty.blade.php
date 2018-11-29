@@ -34,4 +34,4 @@
     @endforeach
 </table>
 
-<button type="button" onclick="{{action('NehnutelnostController@index')}}">Pridat inzerat</button>
+<a href="{{action('NehnutelnostController@index')}}">Pridat inzerat</a>
