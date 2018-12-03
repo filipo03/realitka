@@ -35,7 +35,7 @@ class CreateInzeratTable extends Migration
             $table->string('Ulica', 45)->nullable();
             $table->string('Mesto', 45);
             $table->integer('PSC');
-            $table->integer('Supisne cislo');
+            $table->integer('Supisne_cislo');
 
 
 

@@ -1,21 +1,24 @@
 <table>
     <tr>
         <td>
+            Nazov
+        </td>
+        <td>
             Typ
         </td>
         <td>
             Rozloha
         </td>
         <td>
-            Počet miestností
-        </td>
-        <td>
-            Materiál
+            Cena
         </td>
         <td>
     </tr>
     @foreach($nehnutelnosti as $nehnutelnost)
         <tr>
+            <td>
+                {{$nehnutelnost->Nazov}}
+            </td>
             <td>
                 {{$nehnutelnost->Typ}}
             </td>
@@ -23,10 +26,7 @@
                 {{$nehnutelnost->Rozloha}}
             </td>
             <td>
-                {{$nehnutelnost->Pocet_miestnosti}}
-            </td>
-            <td>
-                {{$nehnutelnost->Material}}
+                {{$nehnutelnost->Cena}}
             </td>
             <td>
                 <a href="{{action("NehnutelnostController@edit",['idInzerat'=>$nehnutelnost->idInzerat])}}">editovat</a></td>

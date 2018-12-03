@@ -26,7 +26,6 @@ class CreateInzeratTable extends Migration
             $table->string('Nazov', 45);
             $table->double('Cena');
             $table->string('Popis');
-            $table->integer('Poloha_idPoloha');
             $table->integer('Nehnutelnost_idBudova');
             $table->integer('Konto_realitka_idKonto_realitka');
             $table->date('Datum');
