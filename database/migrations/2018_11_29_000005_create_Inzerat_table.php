@@ -10,7 +10,7 @@ class CreateInzeratTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'Inzerat';
+    public $set_schema_table = 'nehnutelnosts';
 
     /**
      * Run the migrations.
@@ -26,29 +26,22 @@ class CreateInzeratTable extends Migration
             $table->string('Nazov', 45);
             $table->double('Cena');
             $table->string('Popis');
-            $table->integer('Poloha_idPoloha');
-            $table->integer('Nehnutelnost_idBudova');
+            $table->enum('Typ', ['Rod._dom', 'Byt', 'Kancelaria', 'Pozemok', 'Kancelarska_budova']);
+            $table->double('Rozloha');
+            $table->integer('Pocet_miestnosti')->nullable();
+            $table->enum('Material', ['Tehla', 'Panel', 'Drevo', 'Kamen'])->nullable();
             $table->integer('Konto_realitka_idKonto_realitka');
             $table->date('Datum');
+            $table->string('Ulica', 45)->nullable();
+            $table->string('Mesto', 45);
+            $table->integer('PSC');
+            $table->integer('Supisne cislo');
 
-            $table->index(["Poloha_idPoloha"], 'fk_Inzerat_Poloha1_idx');
 
-            $table->index(["Nehnutelnost_idBudova"], 'fk_Inzerat_Nehnutelnost1_idx');
 
             $table->index(["Konto_realitka_idKonto_realitka"], 'fk_Inzerat_Konto_realitka1_idx');
 
-
-            $table->foreign('Poloha_idPoloha', 'fk_Inzerat_Poloha1_idx')
-                ->references('idPoloha')->on('Poloha')
-                ->onDelete('no action')
-                ->onUpdate('no action');
-
-            $table->foreign('Nehnutelnost_idBudova', 'fk_Inzerat_Nehnutelnost1_idx')
-                ->references('idBudova')->on('Nehnutelnost')
-                ->onDelete('no action')
-                ->onUpdate('no action');
-
-            $table->foreign('Konto_realitka_idKonto_realitka', 'fk_Inzerat_Konto_realitka1_idx')
+$table->foreign('Konto_realitka_idKonto_realitka', 'fk_Inzerat_Konto_realitka1_idx')
                 ->references('idKonto_realitka')->on('Pouzivatel')
                 ->onDelete('no action')
                 ->onUpdate('no action');

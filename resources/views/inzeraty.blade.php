@@ -29,7 +29,7 @@
                 {{$nehnutelnost->Material}}
             </td>
             <td>
-                <a href="{{action("NehnutelnostController@edit",['idBudova'=>$nehnutelnost->idBudova])}}">editovat</a></td>
+                <a href="{{action("NehnutelnostController@edit",['idInzerat'=>$nehnutelnost->idInzerat])}}">editovat</a></td>
         </tr>
     @endforeach
 </table>

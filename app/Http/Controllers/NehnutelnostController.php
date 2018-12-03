@@ -48,7 +48,7 @@ class NehnutelnostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($idBudova)
+    public function show($idInzerat)
     {
         //
     }
@@ -59,9 +59,9 @@ class NehnutelnostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($idBudova)
+    public function edit($idInzerat)
     {
-        $nehnutelnost=nehnutelnost::find($idBudova);
+        $nehnutelnost=nehnutelnost::find($idInzerat);
         return view ("upravit", ['nehnutelnost'=>$nehnutelnost]);
     }
 
@@ -72,9 +72,9 @@ class NehnutelnostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $idBudova)
+    public function update(Request $request, $idInzerat)
     {
-        $nehnutelnost = nehnutelnost::find($idBudova);
+        $nehnutelnost = nehnutelnost::find($idInzerat);
         $nehnutelnost->update(Request::all());
         return redirect()->action('NehnutelnostController@inzeraty');
     }
@@ -85,7 +85,7 @@ class NehnutelnostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($idBudova)
+    public function destroy($idInzerat)
     {
         //
     }

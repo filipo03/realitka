@@ -10,7 +10,7 @@ class CreateInzeratTable extends Migration
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'Inzerat';
+    public $set_schema_table = 'nehnutelnosts';
 
     /**
      * Run the migrations.

@@ -1,4 +1,4 @@
-<form method="post" action="{{action('NehnutelnostController@update', ['idBudova'=>$nehnutelnost->idBudova])}}">
+<form method="post" action="{{action('NehnutelnostController@update', ['idInzerat'=>$nehnutelnost->idInzerat])}}">
     <div class="form-group">
         <select name="Typ" value="{{$nehnutelnost->Typ}}">
             <option value="Rod._dom">Rodinný dom</option>
