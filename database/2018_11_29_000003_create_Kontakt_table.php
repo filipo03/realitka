@@ -22,7 +22,6 @@ class CreateKontaktTable extends Migration
     {
         if (Schema::hasTable($this->set_schema_table)) return;
         Schema::create($this->set_schema_table, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
             $table->increments('idKontakt');
             $table->string('Ulica', 45)->nullable();
             $table->string('Mesto', 45);

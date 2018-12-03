@@ -22,7 +22,6 @@ class CreateInzeratTable extends Migration
     {
         if (Schema::hasTable($this->set_schema_table)) return;
         Schema::create($this->set_schema_table, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
             $table->increments('idInzerat');
             $table->string('Nazov', 45);
             $table->double('Cena');
@@ -53,6 +52,9 @@ class CreateInzeratTable extends Migration
                 ->references('idKonto_realitka')->on('Pouzivatel')
                 ->onDelete('no action')
                 ->onUpdate('no action');
+
+            $table->timestamps();
+
         });
     }
 

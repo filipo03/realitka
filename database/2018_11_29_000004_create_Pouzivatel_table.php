@@ -22,7 +22,6 @@ class CreatePouzivatelTable extends Migration
     {
         if (Schema::hasTable($this->set_schema_table)) return;
         Schema::create($this->set_schema_table, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
             $table->increments('idKonto_realitka');
             $table->string('Názov predajcu', 45);
             $table->integer('ICO/DIC')->nullable();

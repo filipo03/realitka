@@ -18,5 +18,5 @@ Route::get('/', function () {
 Route::get("vlozit", 'NehnutelnostController@index');
 Route::post("store", 'NehnutelnostController@store');
 Route::get("inzeraty", 'NehnutelnostController@inzeraty');
-Route::get("upravit/{id}", 'NehnutelnostController@edit');
-Route::post("update/{id}", 'NehnutelnostController@update');
+Route::get("upravit/{idBudova}", 'NehnutelnostController@edit');
+Route::post("update/{idBudova}", 'NehnutelnostController@update');

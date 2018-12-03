@@ -1,6 +1,6 @@
-<form method="post" action="{{action('NehnutelnostController@update', ['id'=>$nehnutelnost->id])}}">
+<form method="post" action="{{action('NehnutelnostController@update', ['idBudova'=>$nehnutelnost->idBudova])}}">
     <div class="form-group">
-        <select name="Typ" value="">
+        <select name="Typ" value="{{$nehnutelnost->Typ}}">
             <option value="Rod._dom">Rodinný dom</option>
             <option value="Byt">Byt</option>
             <option value="Kancelaria">Kancelária</option>
@@ -15,7 +15,7 @@
         <input type="number" name="Pocet_miestnosti" value="{{$nehnutelnost->Pocet_miestnosti}}">
     </div>
     <div class="form-group">
-        <select name="Material">
+        <select name="Material" value="{{$nehnutelnost->Material}}">
             <option value="Tehla">Tehla</option>
             <option value="Panel">Panel</option>
             <option value="Drevo">Drevo</option>

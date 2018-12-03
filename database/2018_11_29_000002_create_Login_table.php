@@ -22,7 +22,6 @@ class CreateLoginTable extends Migration
     {
         if (Schema::hasTable($this->set_schema_table)) return;
         Schema::create($this->set_schema_table, function (Blueprint $table) {
-            $table->engine = '';
             $table->increments('iduser');
             $table->string('username', 16);
             $table->string('email');

@@ -22,12 +22,12 @@ class CreateNehnutelnostTable extends Migration
     {
         if (Schema::hasTable($this->set_schema_table)) return;
         Schema::create($this->set_schema_table, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
             $table->increments('idBudova');
             $table->enum('Typ', ['Rod._dom', 'Byt', 'Kancelaria', 'Pozemok', 'Kancelarska_budova']);
             $table->double('Rozloha');
             $table->integer('Pocet_miestnosti')->nullable();
             $table->enum('Material', ['Tehla', 'Panel', 'Drevo', 'Kamen'])->nullable();
+            $table->timestamps();
         });
     }
 

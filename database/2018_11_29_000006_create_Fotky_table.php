@@ -22,7 +22,6 @@ class CreateFotkyTable extends Migration
     {
         if (Schema::hasTable($this->set_schema_table)) return;
         Schema::create($this->set_schema_table, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
             $table->increments('idFotky');
             $table->string('Popis')->nullable();
             $table->string('URL');
