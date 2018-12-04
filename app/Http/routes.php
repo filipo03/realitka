@@ -20,3 +20,16 @@ Route::post("store", 'NehnutelnostController@store');
 Route::get("inzeraty", 'NehnutelnostController@inzeraty');
 Route::get("upravit/{idInzerat}", 'NehnutelnostController@edit');
 Route::post("update/{idInzerat}", 'NehnutelnostController@update');
+
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+Route::get('home', function(){
+    echo 'HOme';
+});
