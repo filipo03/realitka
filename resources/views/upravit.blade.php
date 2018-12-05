@@ -5,11 +5,11 @@
     <div class="form-group">
         Typ
         <select name="Typ">
-            <option value="Rod._dom">Rodinný dom</option>
-            <option value="Byt">Byt</option>
-            <option value="Kancelaria">Kancelária</option>
-            <option value="Pozemok">Pozemok</option>
-            <option value="Kancelarska_budova">Kancelárska budova</option>
+            <option value="Rod._dom" {{ $nehnutelnost->Typ === 'Rod._dom' ? 'selected' : '' }}>Rodinný dom</option>
+            <option value="Byt" {{ $nehnutelnost->Typ === 'Byt' ? 'selected' : '' }}>Byt</option>
+            <option value="Kancelaria" {{ $nehnutelnost->Typ === 'Kancelaria' ? 'selected' : '' }}>Kancelária</option>
+            <option value="Pozemok" {{ $nehnutelnost->Typ === 'Pozemok' ? 'selected' : '' }}>Pozemok</option>
+            <option value="Kancelarska_budova" {{ $nehnutelnost->Typ === 'Kancelarska_budova' ? 'selected' : '' }}>Kancelárska budova</option>
         </select>
     </div>
     <div class="form-group">
@@ -21,10 +21,10 @@
     <div class="form-group">
         Materiál
         <select name="Material">
-            <option value="Tehla">Tehla</option>
-            <option value="Panel">Panel</option>
-            <option value="Drevo">Drevo</option>
-            <option value="Kamen">Kameň</option>
+            <option value="Tehla" {{ $nehnutelnost->Material === 'Tehla' ? 'selected' : '' }}>Tehla</option>
+            <option value="Panel" {{ $nehnutelnost->Material === 'Panel' ? 'selected' : '' }}>Panel</option>
+            <option value="Drevo" {{ $nehnutelnost->Material === 'Drevo' ? 'selected' : '' }}>Drevo</option>
+            <option value="Kamen" {{ $nehnutelnost->Material === 'Kamen' ? 'selected' : '' }}>Kameň</option>
         </select>
     </div>
     <div class="form-group">
