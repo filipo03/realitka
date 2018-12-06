@@ -20,6 +20,7 @@ Route::post("store", 'NehnutelnostController@store');
 Route::get("inzeraty", 'NehnutelnostController@inzeraty');
 Route::get("upravit/{idInzerat}", 'NehnutelnostController@edit');
 Route::post("update/{idInzerat}", 'NehnutelnostController@update');
+Route::get("home", 'NehnutelnostController@home');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -30,11 +31,4 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-Route::get('home', function(){
-    if(Auth::guest()){
-        echo 'Prosím prihláste sa';
-    }else{
-        echo 'Vitajte ' . Auth::user()->name . '.';
-    }
 
-});

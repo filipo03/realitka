@@ -66,4 +66,5 @@ class AuthController extends Controller
     }
     protected $redirectPath = '/inzeraty';
     protected $loginPath = '/auth/login';
+    protected $redirectAfterLogout = 'auth/login';
 }

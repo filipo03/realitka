@@ -96,5 +96,15 @@ class NehnutelnostController extends Controller
         return view ("inzeraty", ['nehnutelnosti' =>$nehnutelnosti]);
     }
 
+    public function home(){
+
+/*if(Auth::guest()){
+    echo 'Prosím prihláste sa';
+}else{
+    echo 'Vitajte ' . Auth::user()->name . '.';
+}*/
+        return view('home');
+    }
+
 
 }

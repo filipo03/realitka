@@ -1,6 +1,49 @@
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=number], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    div {
+        border-radius: 5px;
+        background-color: ;
+        padding: 20px;
+    }
+</style>
+@extends('master')
+<div class="stránka" style="margin-left:340px;margin-right:40px">
 <form method="post" action="{{action('NehnutelnostController@update', ['idInzerat'=>$nehnutelnost->idInzerat])}}">
     <div class="form-group">
-        <input type="string" name="Nazov" value="{{$nehnutelnost->Nazov}}">
+        <input type="text" name="Nazov" value="{{$nehnutelnost->Nazov}}">
     </div>
     <div class="form-group">
         Typ
@@ -28,17 +71,17 @@
         </select>
     </div>
     <div class="form-group">
-        <input type="string" name="Popis" value="{{$nehnutelnost->Popis}}">
+        <input type="text" name="Popis" value="{{$nehnutelnost->Popis}}">
     </div>
     <div class="form-group">
         <input type="number" name="Cena" value="{{$nehnutelnost->Cena}}">
     </div>
     Adresa
     <div class="form-group">
-        <input type="string" name="Mesto" value="{{$nehnutelnost->Mesto}}">
+        <input type="text" name="Mesto" value="{{$nehnutelnost->Mesto}}">
     </div>
     <div class="form-group">
-        <input type="string" name="Ulica" value="{{$nehnutelnost->Ulica}}">
+        <input type="text" name="Ulica" value="{{$nehnutelnost->Ulica}}">
     </div>
     <div class="form-group">
         <input type="number" name="Supisne_cislo" value="{{$nehnutelnost->Supisne_cislo}}">
@@ -51,3 +94,4 @@
     </div>
     <input type="hidden" name="_token" value="{{csrf_token()}}">
 </form>
+</div>

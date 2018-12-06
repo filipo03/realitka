@@ -1,18 +1,40 @@
-<table>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {background-color: #f2f2f2;}
+    table.center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+@extends('master')
+<div class="stránka" style="margin-left:340px;margin-right:40px">
+<table class="center" id="myTable" >
     <tr>
-        <td>
+        <th>
             Nazov
-        </td>
-        <td>
+        </th>
+        <th>
             Typ
-        </td>
-        <td>
+        </th>
+        <th>
             Rozloha
-        </td>
-        <td>
+        </th>
+        <th>
             Cena
-        </td>
-        <td>
+        </th>
+        <th>
+
+        </th>
+
     </tr>
     @foreach($nehnutelnosti as $nehnutelnost)
         <tr>
@@ -35,3 +57,4 @@
 </table>
 
 <a href="{{action('NehnutelnostController@index')}}">Pridat inzerat</a>
+</div>

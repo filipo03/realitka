@@ -1,16 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Vlozit inzerat</title>
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
 
-</head>
+    input[type=number], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
 
-<body>
+    input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    div {
+        border-radius: 5px;
+        background-color: ;
+        padding: 20px;
+    }
+</style>
+<div class="stránka" style="margin-left:340px;margin-right:40px">
+
+@extends('master')
 <form method="post" action="store">
     <div class="form-group">
-        <input type="string" name="Nazov" placeholder="Názov">
+        <input type="text" name="Nazov" placeholder="Názov">
     </div>
     <div class="form-group">
         Typ
@@ -38,17 +72,17 @@
         </select>
     </div>
     <div class="form-group">
-        <input type="string" name="Popis" placeholder="Popis">
+        <input type="text" name="Popis" placeholder="Popis">
     </div>
     <div class="form-group">
         <input type="number" name="Cena" placeholder="Cena">
     </div>
     Adresa
     <div class="form-group">
-        <input type="string" name="Mesto" placeholder="Mesto">
+        <input type="text" name="Mesto" placeholder="Mesto">
     </div>
     <div class="form-group">
-        <input type="string" name="Ulica" placeholder="Ulica">
+        <input type="text" name="Ulica" placeholder="Ulica">
     </div>
     <div class="form-group">
         <input type="number" name="Supisne_cislo" placeholder="Číslo domu">
@@ -61,7 +95,8 @@
     </div>
     <input type="hidden" name="_token" value="{{csrf_token()}}">
 </form>
+</div>
 
-</body>
-</html>
+
+
 
