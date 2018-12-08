@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\nehnutelnost;
+
 use Request;
+
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 
 class NehnutelnostController extends Controller
 {
@@ -50,7 +53,8 @@ class NehnutelnostController extends Controller
      */
     public function show($idInzerat)
     {
-        //
+        $nehnutelnost=nehnutelnost::find($idInzerat);
+        return view ("zobrazit", ['nehnutelnost'=>$nehnutelnost]);
     }
 
     /**
@@ -87,7 +91,9 @@ class NehnutelnostController extends Controller
      */
     public function destroy($idInzerat)
     {
-        //
+        $nehnutelnost=nehnutelnost::find($idInzerat);
+        $nehnutelnost->delete();
+        return redirect()->action('NehnutelnostController@inzeraty');
     }
 
     public function inzeraty()

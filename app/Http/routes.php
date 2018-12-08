@@ -17,9 +17,11 @@ Route::get('/', function () {
 
 Route::get("vlozit", 'NehnutelnostController@index');
 Route::post("store", 'NehnutelnostController@store');
+Route::get("zobrazit/{idInzerat}", 'NehnutelnostController@show');
 Route::get("inzeraty", 'NehnutelnostController@inzeraty');
 Route::get("upravit/{idInzerat}", 'NehnutelnostController@edit');
 Route::post("update/{idInzerat}", 'NehnutelnostController@update');
+Route::post("delete/{idInzerat}", 'NehnutelnostController@destroy');
 Route::get("home", 'NehnutelnostController@home');
 
 // Authentication routes...

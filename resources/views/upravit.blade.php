@@ -1,6 +1,6 @@
 <style>
     input[type=text], select {
-        width: 100%;
+        width: 50%;
         padding: 12px 20px;
         margin: 8px 0;
         display: inline-block;
@@ -10,7 +10,7 @@
     }
 
     input[type=number], select {
-        width: 100%;
+        width: 50%;
         padding: 12px 20px;
         margin: 8px 0;
         display: inline-block;
@@ -33,9 +33,9 @@
         background-color: #45a049;
     }
 
-    div {
+    .stránka {
         border-radius: 5px;
-        background-color: ;
+        text-align: center;
         padding: 20px;
     }
 </style>
@@ -46,7 +46,7 @@
         <input type="text" name="Nazov" value="{{$nehnutelnost->Nazov}}">
     </div>
     <div class="form-group">
-        Typ
+        Typ<br>
         <select name="Typ">
             <option value="Rod._dom" {{ $nehnutelnost->Typ === 'Rod._dom' ? 'selected' : '' }}>Rodinný dom</option>
             <option value="Byt" {{ $nehnutelnost->Typ === 'Byt' ? 'selected' : '' }}>Byt</option>
@@ -62,7 +62,7 @@
         <input type="number" name="Pocet_miestnosti" value="{{$nehnutelnost->Pocet_miestnosti}}">
     </div>
     <div class="form-group">
-        Materiál
+        Materiál<br>
         <select name="Material">
             <option value="Tehla" {{ $nehnutelnost->Material === 'Tehla' ? 'selected' : '' }}>Tehla</option>
             <option value="Panel" {{ $nehnutelnost->Material === 'Panel' ? 'selected' : '' }}>Panel</option>

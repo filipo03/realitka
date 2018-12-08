@@ -1,6 +1,6 @@
 <style>
     input[type=text], select {
-        width: 100%;
+        width: 50%;
         padding: 12px 20px;
         margin: 8px 0;
         display: inline-block;
@@ -10,7 +10,7 @@
     }
 
     input[type=number], select {
-        width: 100%;
+        width: 50%;
         padding: 12px 20px;
         margin: 8px 0;
         display: inline-block;
@@ -33,21 +33,21 @@
         background-color: #45a049;
     }
 
-    div {
+    .stránka {
         border-radius: 5px;
-        background-color: ;
+        text-align: center;
         padding: 20px;
     }
 </style>
+<body>
 <div class="stránka" style="margin-left:340px;margin-right:40px">
-
 @extends('master')
 <form method="post" action="store">
     <div class="form-group">
         <input type="text" name="Nazov" placeholder="Názov">
     </div>
     <div class="form-group">
-        Typ
+        Typ<br>
         <select name="Typ">
             <option value="Rod._dom">Rodinný dom</option>
             <option value="Byt">Byt</option>
@@ -63,7 +63,7 @@
         <input type="number" name="Pocet_miestnosti" placeholder="Počet miestností">
     </div>
     <div class="form-group">
-        Materiál
+        Materiál<br>
         <select name="Material">
             <option value="Tehla">Tehla</option>
             <option value="Panel">Panel</option>
@@ -77,8 +77,8 @@
     <div class="form-group">
         <input type="number" name="Cena" placeholder="Cena">
     </div>
-    Adresa
     <div class="form-group">
+        Adresa<br>
         <input type="text" name="Mesto" placeholder="Mesto">
     </div>
     <div class="form-group">
@@ -96,7 +96,7 @@
     <input type="hidden" name="_token" value="{{csrf_token()}}">
 </form>
 </div>
-
+</body>
 
 
 

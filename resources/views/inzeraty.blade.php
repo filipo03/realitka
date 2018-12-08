@@ -51,7 +51,7 @@
                 {{$nehnutelnost->Cena}}
             </td>
             <td>
-                <a href="{{action("NehnutelnostController@edit",['idInzerat'=>$nehnutelnost->idInzerat])}}">editovat</a></td>
+                <a href="{{action("NehnutelnostController@show",['idInzerat'=>$nehnutelnost->idInzerat])}}">Detail</a></td>
         </tr>
     @endforeach
 </table>
