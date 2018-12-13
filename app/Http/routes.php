@@ -14,15 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+// Inzeraty
+Route::get("inzerat/vlozit", 'NehnutelnostController@index');
+Route::post("inzerat/store", 'NehnutelnostController@store');
+Route::get("inzerat/zobrazit/{idInzerat}", 'NehnutelnostController@show');
+Route::get("inzerat/inzeraty", 'NehnutelnostController@inzeraty');
+Route::get("inzerat/upravit/{idInzerat}", 'NehnutelnostController@edit');
+Route::post("inzerat/update/{idInzerat}", 'NehnutelnostController@update');
+Route::post("inzerat/delete/{idInzerat}", 'NehnutelnostController@destroy');
 
-Route::get("vlozit", 'NehnutelnostController@index');
-Route::post("store", 'NehnutelnostController@store');
-Route::get("zobrazit/{idInzerat}", 'NehnutelnostController@show');
-Route::get("inzeraty", 'NehnutelnostController@inzeraty');
-Route::get("upravit/{idInzerat}", 'NehnutelnostController@edit');
-Route::post("update/{idInzerat}", 'NehnutelnostController@update');
-Route::post("delete/{idInzerat}", 'NehnutelnostController@destroy');
+// Home page
 Route::get("home", 'NehnutelnostController@home');
+
+//Stránka používateľa
+Route::get("user/user", 'PouzivatelController@index');
+Route::get("user/inzeraty", 'PouzivatelController@inzeraty_pouzivatel');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

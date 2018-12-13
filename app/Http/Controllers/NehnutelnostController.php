@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\nehnutelnost;
 
-use Request;
+//use Request;
+use Illuminate\Http\Request;
 
 
 use App\Http\Requests;
@@ -13,6 +14,12 @@ use App\Http\Controllers\Controller;
 
 class NehnutelnostController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth',['except' => ['show', 'inzeraty']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +27,7 @@ class NehnutelnostController extends Controller
      */
     public function index()
     {
-        return view('vlozit');
+        return view('inzerat/vlozit');
     }
 
     /**
@@ -41,8 +48,25 @@ class NehnutelnostController extends Controller
      */
     public function store(Request $request)
     {
-        nehnutelnost::create(Request::all());
+        $nehnutelnost = new Nehnutelnost;
+        $nehnutelnost->Nazov = $request->input('Nazov');
+        $nehnutelnost->Cena = $request->input('Cena');
+        $nehnutelnost->Popis = $request->input('Popis');
+        $nehnutelnost->Typ = $request->input('Typ');
+        $nehnutelnost->Rozloha = $request->input('Rozloha');
+        $nehnutelnost->Pocet_miestnosti = $request->input('Pocet_miestnosti');
+        $nehnutelnost->Material = $request->input('Material');
+        $nehnutelnost->Ulica = $request->input('Ulica');
+        $nehnutelnost->Mesto = $request->input('Mesto');
+        $nehnutelnost->PSC = $request->input('PSC');
+        $nehnutelnost->Supisne_cislo = $request->input('Supisne_cislo');
+        $nehnutelnost->user_id = auth()->user()->id;
+        $nehnutelnost->save();
         return redirect()->action('NehnutelnostController@inzeraty');
+
+
+        /*nehnutelnost::create(Request::all());
+        return redirect()->action('NehnutelnostController@inzeraty');*/
     }
 
     /**
@@ -54,7 +78,7 @@ class NehnutelnostController extends Controller
     public function show($idInzerat)
     {
         $nehnutelnost=nehnutelnost::find($idInzerat);
-        return view ("zobrazit", ['nehnutelnost'=>$nehnutelnost]);
+        return view ("inzerat/zobrazit", ['nehnutelnost'=>$nehnutelnost]);
     }
 
     /**
@@ -66,7 +90,13 @@ class NehnutelnostController extends Controller
     public function edit($idInzerat)
     {
         $nehnutelnost=nehnutelnost::find($idInzerat);
-        return view ("upravit", ['nehnutelnost'=>$nehnutelnost]);
+
+        //Kontrola používateľa
+        if(auth()->user()->id !== $nehnutelnost->user_id){
+            return redirect ("inzerat/inzeraty");
+        }
+
+        return view ("inzerat/upravit", ['nehnutelnost'=>$nehnutelnost]);
     }
 
     /**
@@ -79,7 +109,18 @@ class NehnutelnostController extends Controller
     public function update(Request $request, $idInzerat)
     {
         $nehnutelnost = nehnutelnost::find($idInzerat);
-        $nehnutelnost->update(Request::all());
+        $nehnutelnost->Nazov = $request->input('Nazov');
+        $nehnutelnost->Cena = $request->input('Cena');
+        $nehnutelnost->Popis = $request->input('Popis');
+        $nehnutelnost->Typ = $request->input('Typ');
+        $nehnutelnost->Rozloha = $request->input('Rozloha');
+        $nehnutelnost->Pocet_miestnosti = $request->input('Pocet_miestnosti');
+        $nehnutelnost->Material = $request->input('Material');
+        $nehnutelnost->Ulica = $request->input('Ulica');
+        $nehnutelnost->Mesto = $request->input('Mesto');
+        $nehnutelnost->PSC = $request->input('PSC');
+        $nehnutelnost->Supisne_cislo = $request->input('Supisne_cislo');
+        $nehnutelnost->save();
         return redirect()->action('NehnutelnostController@inzeraty');
     }
 
@@ -92,6 +133,12 @@ class NehnutelnostController extends Controller
     public function destroy($idInzerat)
     {
         $nehnutelnost=nehnutelnost::find($idInzerat);
+
+        //Kontrola používateľa
+        if(auth()->user()->id !== $nehnutelnost->user_id){
+            return redirect ("inzerat/inzeraty");
+        }
+
         $nehnutelnost->delete();
         return redirect()->action('NehnutelnostController@inzeraty');
     }
@@ -99,7 +146,7 @@ class NehnutelnostController extends Controller
     public function inzeraty()
     {
         $nehnutelnosti = nehnutelnost::all();
-        return view ("inzeraty", ['nehnutelnosti' =>$nehnutelnosti]);
+        return view ("inzerat/inzeraty", ['nehnutelnosti' =>$nehnutelnosti]);
     }
 
     public function home(){

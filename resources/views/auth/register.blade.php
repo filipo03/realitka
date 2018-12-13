@@ -45,7 +45,6 @@
 
     div {
         border-radius: 5px;
-        background-color: ;
         padding: 20px;
     }
 </style>
@@ -55,7 +54,7 @@
     {!! csrf_field() !!}
 
     <div>
-        Name
+        Meno alebo názov spoločnosti
         <input type="text" name="name" value="{{ old('name') }}">
     </div>
 
@@ -65,17 +64,21 @@
     </div>
 
     <div>
-        Password
+        Heslo
         <input type="password" name="password">
     </div>
 
     <div>
-        Confirm Password
+        Potvrdenie hesla
         <input type="password" name="password_confirmation">
     </div>
-
     <div>
-        <button type="submit">Register</button>
+        Typ používateľa<br>
+        <select name="user_type">
+            <option value="Pouzivatel">Používateľ</option>
+            <option value="Realitka">Realitná kancelária</option>
+        </select>
     </div>
+    <input type="submit" value="Registrovať" />
 </form>
 </div>

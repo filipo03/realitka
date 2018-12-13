@@ -23,13 +23,14 @@
     <div class="w3-bar-block">
 <?php if(Auth::guest()):?>
         <a href="<?php echo url(); ?>/home" class="w3-bar-item w3-button w3-hover-white">Domov</a>
-        <a href="<?php echo url(); ?>/inzeraty" class="w3-bar-item w3-button w3-hover-white">Inzeráty</a>
+        <a href="<?php echo url(); ?>/inzerat/inzeraty" class="w3-bar-item w3-button w3-hover-white">Inzeráty</a>
         <a href="<?php echo url(); ?>/auth/register" class="w3-bar-item w3-button w3-hover-white">Registrácia</a>
         <a href="<?php echo url(); ?>/auth/login" class="w3-bar-item w3-button w3-hover-white">Prihlásenie</a>
     <?php endif; ?>
     <?php if(Auth::user()):?>
     <a href="<?php echo url(); ?>/home" class="w3-bar-item w3-button w3-hover-white">Domov</a>
-    <a href="<?php echo url(); ?>/inzeraty" class="w3-bar-item w3-button w3-hover-white">Inzeráty</a>
+    <a href="<?php echo url(); ?>/inzerat/inzeraty" class="w3-bar-item w3-button w3-hover-white">Inzeráty</a>
+    <a href="<?php echo url(); ?>/user/user" class="w3-bar-item w3-button w3-hover-white">Používateľ</a>
     <a href="<?php echo url(); ?>/auth/logout" class="w3-bar-item w3-button w3-hover-white">Odhlásenie</a>
     <?php endif; ?>
     </div>
