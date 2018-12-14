@@ -48,6 +48,11 @@ class AuthController extends Controller
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
             'user_type' => 'required',
+            'Mesto' => 'required',
+            'Ulica' => 'required',
+            'PSC' => 'required',
+            'Supisne_cislo' => 'required',
+            'Telefon' => 'required',
         ]);
     }
 
@@ -63,7 +68,12 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'user_type' =>$data['user_type'],
+            'user_type' => $data['user_type'],
+            'Mesto' => $data['Mesto'],
+            'Ulica' => $data['Ulica'],
+            'PSC' => $data['PSC'],
+            'Supisne_cislo' => $data['Supisne_cislo'],
+            'Telefon' => $data['Telefon'],
         ]);
     }
     protected $redirectPath = '/inzerat/inzeraty';

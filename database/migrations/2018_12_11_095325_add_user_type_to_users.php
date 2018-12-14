@@ -13,7 +13,7 @@ class AddUserTypeToUsers extends Migration
     public function up()
     {
         Schema::table('users', function($table){
-            $table->enum('user_type', ['Pouzivatel', 'Realitka']);
+            $table->enum('user_type', ['Pouzivatel', 'Realitka', 'Admin']);
         });
     }
 

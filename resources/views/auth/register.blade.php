@@ -19,6 +19,16 @@
         box-sizing: border-box;
     }
 
+    input[type=number], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
     input[type=password], select {
         width: 100%;
         padding: 12px 20px;
@@ -78,6 +88,26 @@
             <option value="Pouzivatel">Používateľ</option>
             <option value="Realitka">Realitná kancelária</option>
         </select>
+    </div>
+    <div>
+        Mesto
+        <input type="text" name="Mesto">
+    </div>
+    <div>
+        Ulica
+        <input type="text" name="Ulica">
+    </div>
+    <div>
+        PSČ
+        <input type="text" name="PSC">
+    </div>
+    <div>
+        Súpisné číslo
+        <input type="number" name="Supisne_cislo">
+    </div>
+    <div>
+        Telefón
+        <input type="text" name="Telefon">
     </div>
     <input type="submit" value="Registrovať" />
 </form>
