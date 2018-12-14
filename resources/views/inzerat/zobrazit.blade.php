@@ -68,6 +68,17 @@
                     <dd>{{$nehnutelnost->PSC}}</dd>
             </dl>
         @if(!Auth::guest())
+            @if(Auth::user()->user_type == "Admin")
+                <input type="submit" value="Vymazať" onclick="clicked(event)">
+    </form>
+    <a href="{{ action ("NehnutelnostController@edit", ['idInzerat'=>$nehnutelnost->idInzerat]) }}">
+        <button type="button" class="button">Editovať</button>
+    </a>
+    @endif
+    @endif
+
+
+    @if(!Auth::guest())
             @if(Auth::user()->id == $nehnutelnost->user_id)
         <input type="submit" value="Vymazať" onclick="clicked(event)">
     </form>

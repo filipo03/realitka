@@ -91,7 +91,11 @@ class NehnutelnostController extends Controller
     {
         $nehnutelnost=nehnutelnost::find($idInzerat);
 
-        //Kontrola používateľa
+        // Kontrola používateľa
+        if(auth()->user()->user_type == "Admin"){
+            return view ("inzerat/upravit", ['nehnutelnost'=>$nehnutelnost]);
+        }
+
         if(auth()->user()->id !== $nehnutelnost->user_id){
             return redirect ("inzerat/inzeraty");
         }
@@ -135,6 +139,10 @@ class NehnutelnostController extends Controller
         $nehnutelnost=nehnutelnost::find($idInzerat);
 
         //Kontrola používateľa
+        if(auth()->user()->user_type == "Admin"){
+            return view ("inzerat/upravit", ['nehnutelnost'=>$nehnutelnost]);
+        }
+
         if(auth()->user()->id !== $nehnutelnost->user_id){
             return redirect ("inzerat/inzeraty");
         }

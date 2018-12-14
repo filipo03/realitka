@@ -10,14 +10,10 @@
     }
 
     tr:nth-child(even) {background-color: #f2f2f2;}
-    table.center {
-        margin-left: auto;
-        margin-right: auto;
-    }
 </style>
 @extends('master')
 <div class="stránka" style="margin-left:340px;margin-right:40px">
-<table class="center" id="myTable" >
+<table class="table table-striped" id="myTable" >
     <tr>
         <th>
             Nazov
