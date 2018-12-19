@@ -33,14 +33,14 @@
         background-color: #45a049;
     }
 
-    .stránka {
+    .w3-main {
         border-radius: 5px;
         text-align: center;
         padding: 20px;
     }
 </style>
 <body>
-<div class="stránka" style="margin-left:340px;margin-right:40px">
+<div class="w3-main" style="margin-left:340px;margin-right:40px;margin-top:70px">
 @extends('master')
 <form method="post" action="store">
     <div class="form-group">

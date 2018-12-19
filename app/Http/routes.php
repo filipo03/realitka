@@ -22,9 +22,17 @@ Route::get("inzerat/inzeraty", 'NehnutelnostController@inzeraty');
 Route::get("inzerat/upravit/{idInzerat}", 'NehnutelnostController@edit');
 Route::post("inzerat/update/{idInzerat}", 'NehnutelnostController@update');
 Route::post("inzerat/delete/{idInzerat}", 'NehnutelnostController@destroy');
+Route::get("inzerat/obrazok/{idInzerat}", 'NehnutelnostController@obrazok');
+Route::post("inzerat/addobrazok/{idInzerat}", 'NehnutelnostController@addobrazok');
+Route::get("inzerat/editobrazok/{idFotky}", 'NehnutelnostController@editobrazok');
+Route::post("inzerat/updateobrazok/{idFotky}", 'NehnutelnostController@updateobrazok');
+Route::post("inzerat/deleteobrazok/{idFotky}", 'NehnutelnostController@deleteobrazok');
 
 // Home page
 Route::get("home", 'NehnutelnostController@home');
+
+//Kontakt
+Route::get("info", 'NehnutelnostController@info');
 
 //Stránka používateľa
 Route::get("user/user", 'PouzivatelController@index');

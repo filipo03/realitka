@@ -32,7 +32,7 @@ class CreateFotkyTable extends Migration
 
             $table->foreign('Inzerat_idInzerat', 'fk_Fotky_Inzerat1_idx')
                 ->references('idInzerat')->on('Inzerat')
-                ->onDelete('no action')
+                ->onDelete('cascade')
                 ->onUpdate('no action');
             $table->timestamps();
 

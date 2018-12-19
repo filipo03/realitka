@@ -1,5 +1,5 @@
 @extends('master')
-<div class="stránka" style="margin-left:340px;margin-right:40px">
+<div class="w3-main" style="margin-left:340px;margin-right:40px;margin-top:70px">
     @if(count($inzeraty) > 0)
 <table class="table table-striped">
     <tr>

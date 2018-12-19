@@ -39,27 +39,24 @@
         box-sizing: border-box;
     }
 
-    button[type=submit] {
-        background-color: #4CAF50;
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    .register{
+        background-color: limegreen;
         color: white;
-        padding: 14px 20px;
+        padding: 8px 12px;
         margin: 8px 0;
         border: none;
         border-radius: 4px;
         cursor: pointer;
     }
 
-    input[type=submit]:hover {
-        background-color: #45a049;
-    }
-
-    div {
-        border-radius: 5px;
-        padding: 20px;
-    }
 </style>
 @extends('master')
-<div class="stránka" style="margin-left:340px;margin-right:40px">
+<div class="w3-main" style="margin-left:340px;margin-right:40px;margin-top:70px">
 <form method="POST" action="register">
     {!! csrf_field() !!}
 
@@ -109,6 +106,6 @@
         Telefón
         <input type="text" name="Telefon">
     </div>
-    <input type="submit" value="Registrovať" />
+    <input type="submit" value="Registrovať" class="register" />
 </form>
 </div>

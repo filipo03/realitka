@@ -40,7 +40,7 @@
     }
 </style>
 @extends('master')
-<div class="stránka" style="margin-left:340px;margin-right:40px">
+<div class="w3-main" style="margin-left:340px;margin-right:40px;margin-top:70px">
 <form method="post" action="{{action('NehnutelnostController@update', ['idInzerat'=>$nehnutelnost->idInzerat])}}">
     <div class="form-group">
         <input type="text" name="Nazov" value="{{$nehnutelnost->Nazov}}">

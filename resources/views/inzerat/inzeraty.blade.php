@@ -12,7 +12,7 @@
     tr:nth-child(even) {background-color: #f2f2f2;}
 </style>
 @extends('master')
-<div class="stránka" style="margin-left:340px;margin-right:40px">
+<div class="w3-main" style="margin-left:340px;margin-right:40px;margin-top:70px">
 <table class="table table-striped" id="myTable" >
     <tr>
         <th>

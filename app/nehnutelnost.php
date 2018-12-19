@@ -13,5 +13,9 @@ class nehnutelnost extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+
+    public function obrazok(){
+        return $this->hasMany('App\Obrazok');
+    }
 }
 

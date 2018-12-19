@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\nehnutelnost;
+use App\Obrazok;
 
 //use Request;
 use Illuminate\Http\Request;
@@ -78,7 +79,7 @@ class NehnutelnostController extends Controller
     public function show($idInzerat)
     {
         $nehnutelnost=nehnutelnost::find($idInzerat);
-        return view ("inzerat/zobrazit", ['nehnutelnost'=>$nehnutelnost]);
+        return view ("inzerat/zobrazit", ['nehnutelnost'=>$nehnutelnost])->with('obrazok', $nehnutelnost->obrazok);
     }
 
     /**
@@ -166,6 +167,79 @@ class NehnutelnostController extends Controller
 }*/
         return view('home');
     }
+
+    public function obrazok($idInzerat){
+        $nehnutelnost=nehnutelnost::find($idInzerat);
+        return view('inzerat/vlozit_obrazok', ['nehnutelnost'=>$nehnutelnost]);
+    }
+
+    public function addobrazok(Request $request, $idInzerat){
+        $nehnutelnost = nehnutelnost::find($idInzerat);
+
+        $this->validate($request, [
+
+            'filename' => 'required',
+            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+
+        ]);
+
+        if($request->hasfile('filename'))
+        {
+            foreach($request->file('filename') as $image)
+            {
+                $obrazok = new Obrazok();
+
+                $name = $image->getClientOriginalName();
+                $image->move(public_path().'/images/', $name);
+                $obrazok->Nazov = $name;
+                $obrazok->nehnutelnost_id = $nehnutelnost->idInzerat;
+                $obrazok->save();
+            }
+        }
+        $obrazok->save();
+
+        return back();
+    }
+
+    public function editobrazok($idFotky){
+        $obrazky=Obrazok::find($idFotky);
+        return view('inzerat/edit_obrazok' ,['obrazky'=>$obrazky]);
+    }
+
+    public function updateobrazok(Request $request, $idFotky){
+        $obrazky=Obrazok::find($idFotky);
+        $this->validate($request, [
+
+            'filename' => 'required',
+            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+
+        ]);
+
+        if($request->hasfile('filename')){
+            foreach($request->file('filename') as $image)
+            {
+                $obrazky=Obrazok::find($idFotky);
+                $name = $image->getClientOriginalName();
+                $image->move(public_path().'/images/', $name);
+                $obrazky->Nazov = $name;
+                $obrazky->save();
+            }
+        }
+        $obrazky->save();
+        return back();
+    }
+
+    public function deleteobrazok($idFotky){
+        $obrazky=Obrazok::find($idFotky);
+        $obrazky->delete();
+        return redirect('inzerat/inzeraty');
+    }
+
+    public function info(){
+        return view('info');
+    }
+
+
 
 
 }
