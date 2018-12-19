@@ -57,7 +57,7 @@
 
             /* Create two columns that float next to eachother */
             .column {
-                float: right;
+                float: left;
                 width: 40%;
                 margin-top: 6px;
                 padding: 20px;

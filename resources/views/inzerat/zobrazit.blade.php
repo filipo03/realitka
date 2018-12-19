@@ -168,6 +168,7 @@
                     </div>
                 </a>
             @endforeach
+
         @endif
     @endif
 
@@ -179,13 +180,19 @@
     @endif
 
     @if(!Auth::guest())
-        @if(Auth::user()->id !== $nehnutelnost->user_id)
+        @if(Auth::user()->user_type !== "Admin")
+            @if(Auth::user()->id !== $nehnutelnost->user_id)
+
             @foreach($obrazok as $obrazky)
                 <img src="{{ asset('images/' . $obrazky->Nazov) }}" height="300" width="500" class="stred"/>
                 <br>
             @endforeach
         @endif
+        @endif
+
     @endif
+
+
 
     <br>
 

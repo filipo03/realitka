@@ -37,6 +37,8 @@ Route::get("info", 'NehnutelnostController@info');
 //Stránka používateľa
 Route::get("user/user", 'PouzivatelController@index');
 Route::get("user/inzeraty", 'PouzivatelController@inzeraty_pouzivatel');
+Route::get("user/pouzivatel_edit", 'PouzivatelController@pouzivatel_edit');
+Route::post("user/pouzivatel_update", 'PouzivatelController@pouzivatel_update');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

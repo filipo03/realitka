@@ -42,6 +42,7 @@
 <body>
 <div class="w3-main" style="margin-left:340px;margin-right:40px;margin-top:70px">
 @extends('master')
+    <h1>Vloženie inzerátu</h1>
 <form method="post" action="store">
     <div class="form-group">
         <input type="text" name="Nazov" placeholder="Názov">

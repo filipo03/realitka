@@ -20,9 +20,9 @@
     }
 
     input[type=submit] {
-        background-color: #4CAF50;
+        background-color: limegreen;
         color: white;
-        padding: 14px 20px;
+        padding: 8px 12px;
         margin: 8px 0;
         border: none;
         border-radius: 4px;
@@ -33,7 +33,7 @@
         background-color: #45a049;
     }
 
-    .stránka {
+    .w3-main {
         border-radius: 5px;
         text-align: center;
         padding: 20px;
@@ -41,6 +41,7 @@
 </style>
 @extends('master')
 <div class="w3-main" style="margin-left:340px;margin-right:40px;margin-top:70px">
+    <h1>Upráva inzerátu {{$nehnutelnost->Nazov}}</h1>
 <form method="post" action="{{action('NehnutelnostController@update', ['idInzerat'=>$nehnutelnost->idInzerat])}}">
     <div class="form-group">
         <input type="text" name="Nazov" value="{{$nehnutelnost->Nazov}}">
@@ -90,7 +91,7 @@
         <input type="number" name="PSC" value="{{$nehnutelnost->PSC}}">
     </div>
     <div class="form-group">
-        <input type="submit" name="submit" value="submit">
+        <input type="submit" name="submit" value="Potvrdiť">
     </div>
     <input type="hidden" name="_token" value="{{csrf_token()}}">
 </form>
